@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Video Processing</title>
+</head>
+<body>
+    <h1>Upload a Video</h1>
+    <form id="uploadForm">
+        <input type="file" id="videoInput" name="video" accept="video/*" required>
+        <button type="submit">Upload</button>
+    </form>
+    <h2>Progress:</h2>
+    <div id="progress">Waiting for upload...</div>
+    <h2>Result Frame:</h2>
+    <img id="resultImage" style="max-width: 100%; display: none;" alt="Result Frame">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('progress', (data) => {
+            const progressDiv = document.getElementById('progress');
+            progressDiv.innerText += data.message + '\n'; // 진행 상황 추가
+            progressDiv.scrollTop = progressDiv.scrollHeight; // 자동 스크롤
+        });
+
+        socket.on('result', (data) => {
+            document.getElementById('progress').innerText += '\nProcessing complete!';
+            const resultImage = document.getElementById('resultImage');
+            resultImage.src = data.image_url;
+            resultImage.style.display = 'block';
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const videoInput = document.getElementById('videoInput').files[0];
+            const formData = new FormData();
+            formData.append('video', videoInput);
+            const response = await fetch('/process', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            console.log(result.message);
+        });
+    </script>
+</body>
+</html>
