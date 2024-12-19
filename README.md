@@ -15,6 +15,7 @@ YOLO V11을 통한 데이터 학습
 YOLO V11, MediaPipe
 Flask
 Python
+<h2> Demo Video </h2>
 
 [![Watch the video](https://img.youtube.com/vi/YuXrAXy7xXE/0.jpg)](https://www.youtube.com/watch?v=YuXrAXy7xXE)
 
