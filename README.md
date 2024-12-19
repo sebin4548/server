@@ -1,5 +1,4 @@
-주제
--> 1루 베이스 포스 아웃/세이프 상황에 대한 비디오 판독 자동화
+<h3>1루 베이스 포스 아웃/세이프 상황에 대한 비디오 판독 자동화</h3>
 
 YOLO V11을 통한 데이터 학습
 ['Runner', 'Base', 'Baseball_ball', 'Fielder1', 'Home_base', 'Fielder2', 'Umpire1', 'Umpire2', 'Glove'] 기준으로 라벨링 되어있는 데이터 활용
@@ -20,7 +19,7 @@ Python
 
 <h3>Example Video</h3>
 <iframe width="560" height="315" 
-    src="https://youtu.be/YuXrAXy7xXE" 
+    src="https://www.youtube.com/watch?v=YuXrAXy7xXE" 
     frameborder="0" allowfullscreen>
 </iframe>
 
