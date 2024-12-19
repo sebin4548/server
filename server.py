@@ -329,10 +329,19 @@ def process_video():
                         # 삼각형 선분이 직사각형 경계와 교차하는지 확인
             if is_triangle_line_in_box(triangle1, (Bx1, By1, Bx2, By2)) or is_triangle_line_in_box(triangle2, (Bx1, By1, Bx2, By2)):
                 print("베이스를 밟았습니다")
-                cv2.putText(annotated_image, "On base", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
+                
+                cv2.putText(annotated_image, "On base", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4, cv2.LINE_AA)
             else:
                 print("베이스를 밟지 않았습니다")
-                cv2.putText(annotated_image, "Not on base", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
+                font_scale = 7
+                font_thickness = 7
+                text = "Not on base"
+                text_size, _ = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, font_scale, font_thickness)
+                text_x = (annotated_image.shape[1] - text_size[0]) // 2
+                text_y = 200
+                cv2.putText(annotated_image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, font_scale, (0, 0, 255), font_thickness, cv2.LINE_AA)
+                # cv2.putText(annotated_image, "Not on base", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4, cv2.LINE_AA)
+
 
             
             frame_image_path = os.path.join(UPLOAD_FOLDER, 'result_frame.jpg')
@@ -405,7 +414,7 @@ def handle_disconnect():
 
 
 if __name__ == '__main__':
-    app.run(port=8081)
+    app.run(port=8082)
 
 
 
