@@ -16,6 +16,7 @@ YOLO V11, MediaPipe
 Flask
 Python
 
+[![Watch the video](https://img.youtube.com/vi/YuXrAXy7xXE/0.jpg)](https://www.youtube.com/watch?v=YuXrAXy7xXE)
 
 <h3>Example Video</h3>
 <iframe width="560" height="315" 
