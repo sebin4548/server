@@ -16,8 +16,7 @@ Python
 [![Watch the video](https://img.youtube.com/vi/YuXrAXy7xXE/0.jpg)](https://www.youtube.com/watch?v=YuXrAXy7xXE)
 
 <h4> framework </h4>
-![Demo Image](image/Drawing-4.png)
-<img src="image/Drawing-4.png" alt="이미지 설명" width="300" />
+<img src="image/Drawing-4.png" alt="이미지 설명"  />
 
 
 <h4>기능 요약</h4>
