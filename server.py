@@ -330,6 +330,9 @@ def process_video():
             if is_triangle_line_in_box(triangle1, (Bx1, By1, Bx2, By2)) or is_triangle_line_in_box(triangle2, (Bx1, By1, Bx2, By2)):
                 print("베이스를 밟았습니다")
                 cv2.putText(annotated_image, "On base", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
+            else:
+                print("베이스를 밟지 않았습니다")
+                cv2.putText(annotated_image, "Not on base", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
             
             frame_image_path = os.path.join(UPLOAD_FOLDER, 'result_frame.jpg')
